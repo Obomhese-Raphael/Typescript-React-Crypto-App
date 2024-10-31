@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
+
+
+.app{
+  min-height: 100vh;
+  color: #fff;
+  background: linear-gradient(#050312, #421b9b, #053e4f);
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Coiny", system-ui;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+li {
+  cursor: pointer;
+}
+
+.thumb {
+  cursor: pointer;
+}

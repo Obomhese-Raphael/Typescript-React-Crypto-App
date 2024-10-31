@@ -1,0 +1,142 @@
+.coins-data {
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+.hero {
+    text-align: center;
+    width: 100%;
+}
+.price, 
+.name,
+.rank
+{ 
+  font-size: 12px;
+}
+
+.hero form {
+  width: 50%;
+  margin: auto;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.hero form input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+    font-size: 13px;
+}
+
+.coins-data h3 {
+  text-align: left;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+}
+
+.coins-data p {
+  color: #fff;
+}
+
+.coins-data .heading h3 {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.crypto-table {
+  max-width: 1000px;
+  margin: auto;
+  background: linear-gradient(rgba(10, 71, 193, 0.15),rgba(132, 43, 174, 0.15));
+  border-radius: 15px;
+}
+.table-layout {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 2fr;
+  padding: 15px 20px;
+  align-items: center;
+  border-bottom: 1px solid #3c3c3c;
+}
+.market-cap {
+  text-align: right;
+  font-size: 12px;
+}
+.circulating_suppply {
+  font-size: 15px;
+  text-align: right;
+  margin-right: 15px;
+}
+.circulating-supply {
+  text-align: right;
+  font-size: 12px;
+}
+.circulating-supply .cir_sup {
+  margin-left: 30%;
+}
+.table-layout:last-child {
+  border: none;
+}
+.table-layout div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.table-layout div img {
+  width: 35px;
+}
+.table-layout .green {
+  color: #00d515;
+  text-align: center;
+  font-size: 12px;
+}
+
+.table-layout .red {
+  color: #ff4646;
+  text-align: center;
+  font-size: 12px;
+}
+
+.cir_sup {
+  text-align: right;
+  margin: auto;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .table-layout {
+    grid-template-columns: 0.5fr 2fr 1fr 1fr;
+  }
+  .market-cap {
+    display: none;
+  }
+  .circulating_suppply {
+    display: none;
+  }
+  .cir_sup {
+    display: none;;
+  }
+  .name_symbol {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .table-layout div img {
+    width: 25px;
+  }
+  .table-layout {
+    font-size: 13px;
+  }
+  .hero form input {
+    width: 100px;
+  }
+}
