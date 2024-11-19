@@ -1,0 +1,118 @@
+.derivative {
+    width: 100%;
+}
+
+.derivative .top {
+    padding: 70px;
+}  
+
+.top h2 {
+    font-size: 25px;
+}
+
+.top p {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.derivative .derivative_change {
+    display: flex;
+    padding: 0 70px;
+}
+
+.derivative_change .containers {
+    flex: 1;
+    padding: 5px;
+    gap: 20px;
+}
+
+.derivative_change .containers .container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.derivative_change .containers .container:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    color: #000;
+}
+
+.derivative-container .crypto-table {
+  max-width: 1200px;
+  margin: auto;
+  background: linear-gradient(rgba(36, 88, 190, 0.15),rgba(132, 43, 174, 0.15));
+  border-radius: 15px;
+}
+
+.derivative-container .crypto-table .table-layouts {
+  display: grid;
+  grid-template-columns: .12fr .65fr .4fr .4fr .4fr .12fr .5fr;
+  padding: 15px 20px;
+  align-items: center;
+  border-bottom: 1px solid #3c3c3c;
+}
+
+
+.table-layouts .exchange{
+    margin-left: 10%;
+}
+
+.crypto-table .link_img:hover{
+    color: green;
+}
+
+.crypto-table .year_est{
+    text-align: center;
+}
+
+.table-layouts .pic_name img{
+    width: 25px;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 1024px) {
+    .derivative .top {
+        padding: 20px;
+    }
+    .derivative .exchange_change {
+        margin: 50px;
+        margin-top: 2px;
+        margin-bottom: 10px;
+    }
+    .derivative .exchange_change .containers{  
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+    }
+    .derivative .derivative-container .crypto-table  {
+        max-width: 100%;
+    }
+    .derivative .derivative-container .crypto-table .table-layouts.table-info{
+        display: grid;        
+        grid-template-columns: 0.4fr 2fr 1.3fr .8fr;
+    }
+    .derivative .derivative-container .crypto-table .table-layouts{
+        display: grid;        
+        grid-template-columns: 0.3fr 1.5fr 2fr 1fr;
+    }
+    .table-layouts .pairs {
+        display: none;
+    }
+    .table-layouts .year_est {
+        display: none;
+    }
+    .table-info .pic_name {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 75%;
+        gap: 10px;
+    }
+}

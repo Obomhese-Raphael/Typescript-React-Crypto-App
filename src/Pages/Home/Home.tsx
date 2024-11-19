@@ -45,11 +45,11 @@ const Home = () => {
     <div className="">
       <div className="home main-container">
         <div className="home-container">
-          Trending Coins
-          <div className="thumb">
+          <p className="trending_coins">Trending Coins</p>
+          <Link to={`/coin/${coin.id}`} className="thumb">
             <p>{currentIndex + 1}.</p>
             <h3>{coin.name}</h3>
-            <Link to={`/coin/${coin.id}`}>
+            <div>
               <div
                 className="img"
                 style={{
@@ -60,8 +60,8 @@ const Home = () => {
                   backgroundPosition: 'center',
                 }}
               ></div>
-            </Link>
-          </div>
+            </div>
+          </Link>
           <p className="market_cap">{coin.data.market_cap.toLocaleString()}</p>
           <p className={`price_change ${priceChangeData[currentCurrencyKey] > 0 ? "green" : "red"}`}>
             {changeIcon}

@@ -1,0 +1,155 @@
+.nft .mx_70 {
+    margin: 50px 100px;
+}
+
+.table-layout .avg_price {
+  text-align: center;
+}
+
+.nft {
+  margin-bottom: 50px;
+}
+
+.nft .row {
+    margin: 50px 150px;
+}
+
+.nfts .crypto-table {
+  max-width: 1000px;
+  margin: auto;
+  background: linear-gradient(rgba(90, 133, 219, 0.15),rgba(132, 43, 174, 0.15));
+  border-radius: 15px;
+  margin-bottom: 50px;
+}
+.nfts .table-layout {
+  display: grid;
+  grid-template-columns: .3fr .5fr .3fr .35fr .3fr .5fr;
+  padding: 15px 20px;
+  align-items: center;
+  border-bottom: 1px solid #3c3c3c;
+}
+.nfts .table-layout p {
+    font-size: 1px;
+}
+.nfts .market-cap {
+  text-align: right;
+  font-size: 12px;
+}
+.nfts .circulating_suppply {
+  font-size: 15px;
+  text-align: right;
+  margin-right: 15px;
+}
+.nfts .circulating-supply {
+  text-align: right;
+  font-size: 12px;
+}
+.nfts .circulating-supply .cir_sup {
+  margin-left: 30%;
+}
+.nfts .table-layout:last-child {
+  border: none;
+}
+.nfts .table-layout div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nfts .table-layout div img {
+  width: 35px;
+}
+.nfts .table-layout .green {
+  color: #00d515;
+  text-align: center;
+  font-size: 12px;
+}
+
+.nfts .table-layout .red {
+  color: #ff4646;
+  text-align: center;
+  font-size: 12px;
+}
+
+.nfts .cir_sup {
+  text-align: right;
+  margin: auto;
+  font-size: 12px;
+}
+
+.table-layout .image {
+    border: none;
+    border-radius: 50%;
+}
+
+.nft-list {
+  margin-bottom: 30px;
+  padding-top: 20px;
+  padding-left: 10%;
+}
+
+.nft-list h3 {
+  font-size: 25px;
+}
+
+@media (max-width: 768px) {
+  .nft .row {
+    text-align: center;
+    padding: 0px;
+    margin: auto;
+    gap: 20px;
+    width: 80%;
+    text-align: center;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+  }
+    .crypto-table {
+        max-width: 100%;
+        margin: 0;
+    }
+    .mx_70.ccs {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0px;
+    padding: 40px 25px;
+  }
+  .nft .crypto-table .table-layout {
+    grid-template-columns: 0.5fr 2fr 1fr;
+  }
+  .crypto-table .market-cap {
+    display: none;
+  }
+  .crypto-table .circulating_suppply {
+    display: none;
+  }
+  .crypto-table .cir_sup {
+    display: none;;
+  }
+  .crypto-table .name_symbol {
+    display: none;
+  }
+  .avg_price {
+    display: none;
+  }
+  .coin-price .price-up {
+    display: none;
+  }
+  .coin-price .price-down {
+    display: none;
+  }
+  .nft .table-layout .red {
+    display: none;
+  }
+  .nft .table-layout .green {
+    display: none;
+  }
+  .nft .coin-list .coin-info .name {
+    display: block;
+  }
+  .table-layout .none{
+    display: none;
+  }
+}

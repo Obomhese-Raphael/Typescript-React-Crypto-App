@@ -9,21 +9,20 @@ const SignUp = () => {
 
     return (
         <div className="login">
-
             <div className="inner_login">
-                <div
+                <form
                     className="main">
                     <div className="inner_main">
                         <div className="entry">
                             <p>Email Address</p>
                             <div className="inner_entry">
                                 <div className="input">
-                                    <input type="text" placeholder="Enter phone number or email" id="" />
+                                    <input type="text" placeholder="Enter phone number or email" id="" required/>
                                 </div>
 
                                 <p>Password</p>
                                 <div className="input">
-                                    <input type="password" placeholder="Enter password" id="" />
+                                    <input type="password" placeholder="Enter password" id="" required/>
                                 </div>
                                 <p id="message" className="messgage"></p>
                                 <div className="space"></div>
@@ -149,14 +148,12 @@ const SignUp = () => {
                                         <div className="pro">
                                             <p>By proceeding, you agree to receive calls, WhatsApp, SMS/RCS messages from CryptoApp.</p>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     )

@@ -6,6 +6,10 @@
     rgb(50, 71, 138) 70.2%);
 }
 
+.cryptocurrencies .crypto-table {
+  margin-top: 50px;
+}
+
 .ccs .header {
     font-size: 25px;
     font-weight: bold;
@@ -43,17 +47,22 @@
     gap: 10px;
 }
 
-.trending-container .crypto-container {
+.crypto-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1; 
   gap: 20px;
-  margin: 30px;
+  padding-top: 50px;
+}
+
+.mx_50 {
+  margin-left: 80px;
 }
 
 .row {
   display: flex;
   flex-direction: row; 
   gap: 30px;
+  margin-left: 50px;
 }
 
 .col {
@@ -219,9 +228,9 @@
   background: linear-gradient(rgba(90, 133, 219, 0.15),rgba(132, 43, 174, 0.15));
   border-radius: 15px;
 }
-.ccs .table-layout {
+.ccs.table-layout {
   display: grid;
-  grid-template-columns: .3fr 1fr .5fr .35fr .5fr 1fr;
+  grid-template-columns: .3fr 1fr .5fr .35fr .5f;
   padding: 15px 20px;
   align-items: center;
   border-bottom: 1px solid #3c3c3c;
@@ -271,40 +280,14 @@
   font-size: 12px;
 }
 
+.coin-info .symbol {
+  display: none;
+}
+
 
 /* Media Queries */
 
 @media (max-width: 768px) {
-    .containers {
-        flex-direction: column;
-    }
-
-    .row {
-        flex-direction: column;
-    }
-
-    .td {
-        flex-direction: column;
-    }
-
-    .trending-container .crypto-container {
-        grid-template-columns: 1fr;
-    }
-
-    .small_container {
-        flex-direction: column;
-        text-align: left;
-    }
-}
-
-@media (max-width: 768px) {
-    .crypto-table {
-        max-width: 100%;
-        margin: 0;
-    }
-  .ccs .table-layout {
-    grid-template-columns: 0.5fr 2fr 1fr;
-  }
   .ccs .market-cap {
     display: none;
   }
@@ -317,9 +300,45 @@
   .ccs .name_symbol {
     display: none;
   }
-}
+    .cryptocurrencies .containers {
+        flex-direction: column;
+    }
 
-@media (max-width: 500px) {
+    .crypto-container .row {
+        flex-direction: column;
+        text-align: center;
+    padding: 0px;
+    margin: auto;
+    gap: 20px;
+    width: 100%;
+    }
+
+    .crypto-container .td {
+        flex-direction: column;
+    }
+
+    .trending-container .crypto-container {
+        grid-template-columns: 1fr;
+    }
+
+    .four_containers .small_container {
+        flex-direction: column;
+        text-align: left;
+    }
+    .four_containers .small_container h2 {
+        font-size: 12px;
+    }
+    .four_containers .small_container p {
+        font-size: 10px;
+    }
+    .ccs {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0px;
+  }
   .ccs .table-layout div img {
     width: 25px;
   }
@@ -329,13 +348,29 @@
   .ccs .hero form input {
     width: 100px;
   }
-  ._24hr {
-    display: none;
-  }
   .ccs .red {
     display: none;
   }
   .ccs .green {
     display: none;
   }
+  .row.four_containers{
+    flex-direction: column;
+    margin: 0px;
+  }
+  .coin-info .name {
+    display: none;
+  }
+  
+.coin-info .symbol {
+  display: block;
+}
+ .cryptocurrencies .crypto-table {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 1000px;
+ }
+ .cryptocurrencies{
+  padding: 10px;
+ }
 }

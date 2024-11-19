@@ -76,9 +76,9 @@ const CoinsData = () => {
                     <Link to={`/coin/${item.id}`} className="table-layout" key={index}>
                         <p className="rank">{item.market_cap_rank}</p>
                         <div>
-                            <img className="image" src={item.image} alt={item.name} />
-                            <p className="name">{`${item.name}`}</p>
-                            <p className="name name_symbol">- {item.symbol.toUpperCase()}</p>
+                            <img className="image small_image" src={item.image} alt={item.name} />
+                          <p className="name">{`${item.name}`}</p>
+                          <p className="name name_symbol">- {item.symbol.toUpperCase()}</p>
                         </div>
                         <p className="price">
                             {currency.symbol} {item.current_price.toLocaleString()}

@@ -1,0 +1,203 @@
+.exchange {
+    width: 100%;
+}
+
+.exchange .top {
+    padding: 70px;
+}
+
+.top h2 {
+    font-size: 25px;
+}
+
+.top p {
+    font-size: 12px;
+    margin-top: 10px; 
+}
+
+.exchange .exchange_change {
+    display: flex;
+    padding: 0 70px;
+}
+
+.exchange_change .containers {
+    flex: 1;
+    padding: 5px;
+    gap: 20px;
+}
+
+.exchange_change .containers .container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.exchange_change .containers .container:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    color: #000;
+}
+
+.list-container {
+    margin-top: 20px;
+}
+.list-container .crypto-table {
+  max-width: 1200px;
+  margin: auto;
+  background: linear-gradient(rgba(36, 88, 190, 0.15),rgba(132, 43, 174, 0.15));
+  border-radius: 15px;
+}
+
+.list-container .crypto-table .table-layouts {
+  display: grid;
+  grid-template-columns: .25fr .76fr .8fr .4fr .4fr .52fr .52fr;
+  padding: 15px 20px;
+  align-items: center;
+  border-bottom: 1px solid #3c3c3c;
+}
+
+.table-layouts .trust-score {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    background: linear-gradient(rgba(90, 133, 219, 0.15),rgba(132, 43, 174, 0.15));
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.table-layouts div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.table-layouts div img{
+    width: 35px;
+    border: none;
+    border-radius: 50%;
+}
+
+.table-layouts .link {
+    text-align: center;
+}
+
+.table-layouts p {
+    font-size: 12px;
+}
+
+.table-layouts .link_icon {
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+.table-layouts .country{
+    text-align: center;
+}
+
+.table-layouts .pic_name {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.table-layouts .pic_name img {
+    width: 35px;
+    border: none;
+    border-radius: 50%;
+}
+
+.table_info p {
+    font-size: 10px;
+}
+
+.table-layouts .country_hdd {
+    text-align: center;
+}
+
+.country .country_text {
+    text-align: center;
+    width: 100%;
+}
+
+.pic_name .db_check {
+    color: green;
+}
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+    .exchange .top{
+        padding: 30px;
+    }
+    .exchange .exchange_change .containers{  
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+    }
+    .exchange .list-container .crypto-table .table-layouts{
+        display: grid;        
+        grid-template-columns: 0.5fr 1fr 1.3fr .8fr;
+    }
+    .exchange .list-container .crypto-table {
+        max-width: 100%;
+        margin: 0;
+    }
+    .list-container .crypto-table .table-layouts .country_hdd{
+        display: none;
+    }
+    .list-container .crypto-table .table-layouts .monthly-visits{
+        display: none;
+    }
+    .exchange .list-container .crypto-table .table_info{
+        display: grid;        
+        grid-template-columns: 0.5fr 2.5fr 2fr 1fr;
+    }
+    .list-container .crypto-table .table-layouts .trust_score{
+        display: flex;
+        width: 100%;
+    }
+    .volume_24{
+        display: none;
+    }
+    .country .country_text{
+        display: none;
+    }
+    .linked{
+        display: none;
+    }
+    .link_icon .link_url{
+        display: none;
+    }
+    .price.trust-score{
+        width: 100px;
+    } 
+    .table-layouts .pic_name {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        gap: 2px;
+    }
+    .table-layouts .pic_name.ellipses{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    } 
+    .table-layouts .pic_name .name {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .table-layouts .pic_name img {
+        width: 25px;
+        border: none;
+        border-radius: 50%;
+    }
+}

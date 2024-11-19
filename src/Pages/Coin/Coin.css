@@ -352,6 +352,16 @@
 
 .table-layout .center {
     text-align: center;
+    width: 100%;
+}
+
+.table-layout .ellipses {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 50%;
+    text-align: center;
+
 }
 
 .target {
@@ -365,6 +375,12 @@
     font-weight: 600;
     margin-left: 10%;
     gap: 10px;
+}
+
+.table-layout .centered {
+    width: 70%;
+    /* margin: auto; */
+    text-align: center;
 }
 
 .coins_market .market .heading {
@@ -383,4 +399,22 @@
     .right-container .container {
         gap: 5px;
     }
+    .table-layout .target {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .table-layout .centered {
+        display: none;
+    }
+    .table-layout .ellipses {
+        display: none;
+    }
+    .coins_market .table-layout {
+  display: grid;
+  grid-template-columns: 0.5fr 1.7fr 1fr 1.5fr;
+  padding: 15px 20px;
+  align-items: center;
+  border-bottom: 1px solid #3c3c3c;
+}
 }

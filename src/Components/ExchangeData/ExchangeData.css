@@ -1,0 +1,304 @@
+.mini-exchange {
+    margin: 40px 150px;
+}
+.mini-exchange .stages{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.mini-exchange .stages .stage {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.stage .name {
+    color: #bbb6b6;
+}
+
+.stage p {
+    font-size: 12px;
+}
+
+.stage p:hover{
+    color: #bbb;
+    cursor: pointer;
+    transition: color 0.16s ease;
+}
+
+.name-info {
+    margin-top: 20px;
+}
+
+.name-info .name{
+    text-align: center;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
+
+.name img {
+    width: 40px;
+}
+
+.name h2 {
+    font-size: 25px;
+}
+
+.name .centralized {
+    font-size: 10px;
+    color: #000;
+    background-color: #ccc;
+    padding: 3px;
+    border: none;
+    border-radius: 2px;
+    margin-left: 3px;
+}
+
+.name .centralized:hover {
+    background-color: green;
+    cursor: pointer;
+}
+
+.mini-exchange .row {
+  display: flex;
+  flex-direction: row; 
+  gap: 30px;
+  text-align: left;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.mini-exchange .row .col {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+}
+
+.mini-exchange .row .col p {
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.mini-exchange .row .col h3 {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.col .score {
+    color: green;
+}
+
+.spot-market {
+    margin-top: 20px;
+}
+.apot-market .crypto-table {
+  max-width: 1200px;
+  margin: auto;
+  background: linear-gradient(rgba(36, 88, 190, 0.15),rgba(132, 43, 174, 0.15));
+  border-radius: 15px;
+}
+
+.spot-market .crypto-table .table-layouts {
+  display: grid;
+  grid-template-columns: .25fr .76fr .8fr .4fr .4fr .52fr .52fr .53fr;
+  padding: 15px 20px;
+  align-items: center;
+  border-bottom: 1px solid #3c3c3c;
+}
+
+.table-layouts .trust_p {
+    text-align: center;
+}
+
+.green_full {
+    color: green;
+    content: fill;
+    text-rendering: auto;
+    border-radius: 50%;
+}
+
+.yellow_full {
+    color: yellow;
+    content: fill;
+    text-rendering: auto;
+    border-radius: 50%;
+}
+
+.spot-market .heads {
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 50px;
+    margin-top: 50px;
+    color: white;
+    padding: 10px;
+    border-radius: 15px 15px 0 0;
+}
+
+.show_more {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.show_more button {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.show_more button:hover {
+    background: #45a049;
+}
+
+.pair-link {
+    display: flex;
+    gap: 10px;
+}
+
+.pair-link .link {
+    font-size: 10px;
+}
+.pair-link:hover{
+    color: #4ed552;
+}
+
+
+.exchange-info {
+    border: 1px solid #ccc;
+    margin-top: 50px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.exchange-info .top-info {
+    margin-bottom: 20px;
+}
+
+.exchange-info .top-info h3 {
+    font-size: 28px;
+    font-weight: bold;
+    font-style: italic;
+    color: #f4e8e8;
+}
+
+.exchange-info .top-info p {
+    font-size: 14px;
+    margin-top: 10px;
+    line-height: 1.5;
+    font-style: italic;
+    color: #ccc;
+}
+
+.exchange-info .middle-info {
+    margin-top: 50px;
+}
+
+.middle-info .site {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0px;
+    font-size: 12px;
+    margin: 5px;
+}
+
+.site .inner-site {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.inner-site a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+  background: linear-gradient(rgba(111, 146, 216, 0.15),rgba(187, 134, 212, 0.15));
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #ccc;
+    transition: background-color 0.3s ease-in-out;
+    font-style: italic;
+}
+
+.inner-site a:hover {
+    background: linear-gradient(rgba(111, 146, 216, 0.35),rgba(187, 134, 212, 0.35));
+    color: #fff;
+}
+
+.inner-site p {
+    color: #ccc;
+    transition: background-color 0.3s ease-in-out;
+    font-style: italic;
+}
+
+.site h3 {
+    color: #f9f9f9;
+    transition: background-color 0.3s ease-in-out;
+    font-style: italic;
+    text-align: baseline;   
+}
+
+
+/* Media Queries */
+
+@media only screen and (max-width: 768px) {
+    .mini-exchange {
+        margin: 10px;
+    }
+    .mini-exchange .stages {
+        display: flex;
+        margin-top: 30px;
+        flex-direction: row;
+        gap: 10px;
+    }
+    .mini-exchange .name-info .name{
+        margin: 20px;
+    }
+    .mini-exchange .name-info .name h2{
+        font-size: 20px;
+    }
+    .mini-exchange .name-info .name p{
+        font-size: 10px;
+        font-weight: bold;
+    }
+    .mini-exchange .row{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        gap: 5px;
+    }
+    .spot-market .crypto-table .table-layouts{
+        display: grid;
+        grid-template-columns: 0.5fr 1fr 1.3fr .8fr;
+    }
+    .table-layouts .spread_p{
+        display: none;
+    }
+    .table-layouts .volume_p{
+        display: none;
+    }
+    .table-layouts .trust_p{
+        display: none;
+    }
+    .table-layouts ._24hr_p{
+        display: none;
+    }
+    .site .inner-site{ 
+        gap: 10px;
+    }
+    .site .inner-site .none{
+        display: none;
+    }
+}

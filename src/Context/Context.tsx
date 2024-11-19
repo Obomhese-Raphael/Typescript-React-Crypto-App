@@ -17,6 +17,7 @@ const CoinContextProvider = ({ children }: CoinContextProviderProps) => {
     const [trendingNFTs, setTrendingNFTs] = useState([]);
     const [trendingCategories, setTrendingCategories] = useState([]);
     const [nftList, setNftList] = useState([]);
+    const [exchangeList, setExchangeList] = useState([]);
     const [currency, setCurrency] = useState({
         name: "usd",
         symbol: "$",
@@ -98,7 +99,7 @@ const CoinContextProvider = ({ children }: CoinContextProviderProps) => {
             .catch(err => console.error(err));
     }
 
-    const getNftList = async () => {
+    const getExchangeListWithData = async () => {
         const options = {
             method: "GET",
             headers: {
@@ -107,12 +108,11 @@ const CoinContextProvider = ({ children }: CoinContextProviderProps) => {
             },
         };
 
-        fetch('https://api.coingecko.com/api/v3/nfts/list', options)
+        fetch('https://api.coingecko.com/api/v3/exchanges', options)
             .then(response => response.json())
             .then(response => {
-                console.log("NFT List: ", response);
-                setNftList(response);
-                console.log("Nft List Ids: ", response.id)
+                console.log("Exchange List", response);
+                setExchangeList(response);
             })
             .catch(err => console.error(err));
     }
@@ -125,7 +125,7 @@ const CoinContextProvider = ({ children }: CoinContextProviderProps) => {
         fetchTrendingCoin();
         getGlobalMarketData();
         getNftMarketData();
-        getNftList();
+        getExchangeListWithData();
     }, []);
 
     const contextValue = {
@@ -146,6 +146,8 @@ const CoinContextProvider = ({ children }: CoinContextProviderProps) => {
         setTrendingCategories,
         nftList,
         setNftList,
+        exchangeList,
+        setExchangeList,
     };
 
     return (

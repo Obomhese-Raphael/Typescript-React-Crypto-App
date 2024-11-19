@@ -83,20 +83,20 @@ const Coin = () => {
                   <img src={coinResponse?.image?.thumb} alt="" />
                   <p>{coinResponse?.name}</p>
                 </div>
-                <p className="small_name">{coinResponse?.symbol.toUpperCase()}</p>
+                <p className="small_name">{coinResponse?.symbol?.toUpperCase()}</p>
                 <p className="small_rank">#{coinResponse?.market_cap_rank}</p>
                 <br />
               </div>
               <div className="amount">
                 <div className="inner_amount">
-                  <p className="amount_price">{currency.symbol}{coinResponse.market_data.current_price[currency.name].toLocaleString()}</p>
+                  <p className="amount_price">{currency.symbol}{coinResponse?.market_data?.current_price[currency.name].toLocaleString()}</p>
                   <p>
                     {
-                      coinResponse.market_data.price_change_percentage_24h_in_currency[currency.name] > 0
-                        ? <p className="green rate"><MdArrowDropUp /> {coinResponse.market_data.
+                      coinResponse?.market_data.price_change_percentage_24h_in_currency[currency.name] > 0
+                        ? <p className="green rate"><MdArrowDropUp /> {coinResponse?.market_data?.
                           price_change_percentage_24h_in_currency[currency.name].toFixed(2)
                         }% (1d)</p>
-                        : <p className="red rate"><MdArrowDropDown /> {coinResponse.market_data.
+                        : <p className="red rate"><MdArrowDropDown /> {coinResponse.market_data?.
                           price_change_percentage_24h_in_currency[currency.name].toFixed(2)
                         }% (1d)</p>
                     }
@@ -303,16 +303,16 @@ const Coin = () => {
               <div className="table-layout">
                 <p>#</p>
                 <p>Exchange</p>
-                <p className="center">Pair</p>
+                <p className="centered">Pair</p>
                 <p>Price</p>
                 <p className="center">Volume</p>
               </div>
               {coinResponse?.tickers?.slice(0, 10).map((item: any, index: number) => (
-                <Link to={""}>
+                <Link to={`/exchanges/${item?.market?.identifier}`}>
                   <div className="table-layout">
                     <p>{index + 1}</p>
                     <Link to={item.trade_url}>{item?.market?.name}</Link>
-                    <p className="target">{item.base}/{item?.target}</p>
+                    <p className="target ellipses">{item.base}/{item?.target}</p>
                     <p>${item.last.toLocaleString()}</p>
                     <p style={{ textAlign: "center" }}>
                       ${item?.volume.toLocaleString()}

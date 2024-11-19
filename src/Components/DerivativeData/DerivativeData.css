@@ -1,0 +1,162 @@
+.mini-derivative {
+    margin: 40px 150px;
+}
+
+.mini-derivative .stages{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.mini-derivative .stages .stage {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.stage .name {
+    color: #bbb6b6;
+}
+
+.stage p {
+    font-size: 12px;
+}
+
+.stage p:hover{
+    color: #bbb;
+    cursor: pointer;
+    transition: color 0.16s ease;
+}
+
+
+.name-info {
+    margin-top: 20px;
+}
+
+.name-info .name{
+    text-align: center;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
+
+.name img {
+    width: 40px;
+}
+
+.name h2 {
+    font-size: 25px;
+}
+
+.name .centralized {
+    font-size: 7px;
+    color: #000;
+    background-color: #ccc;
+    padding: 3px;
+    border: none;
+    border-radius: 2px;
+    margin-left: 3px;
+}
+
+.name .centralized:hover {
+    background-color: green;
+    cursor: pointer;
+}
+
+
+.name-info .name h2{
+    font-size: 20px;
+}
+
+.mini-derivative .row {
+  display: flex;
+  flex-direction: row; 
+  gap: 30px;
+  text-align: left;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.mini-derivative .row .col {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+}
+
+.mini-derivative .row .col p {
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.mini-derivative .row .col h3 {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.col .score {
+    color: green;
+}
+
+.table_info .red {
+    text-align: left;
+}
+
+.table_info .green {
+    text-align: left;
+}
+
+.table_info .funding{
+    text-align: center;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 768px) {
+    .mini-derivative {
+        margin: 10px;
+    }
+    .mini-derivative .stages {
+        display: flex;
+        margin-top: 30px;
+        flex-direction: row;
+        gap: 10px;
+    }
+    .mini-derivative .name-info .name{
+        margin: 20px;
+    }
+    .mini-derivative .name-info .name h2{
+        font-size: 17px;
+    }
+    .mini-derivative .name-info .name p{
+        font-size: 10px;
+        font-weight: bold;
+    }
+    .mini-derivative .row{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        gap: 5px;
+    }
+    .spot-market .crypto-table .table-layouts{
+        display: grid;
+        grid-template-columns: 0.5fr 1fr 1.3fr .8fr;
+    }
+    .table-layouts .spread {
+        display: none;
+    }
+    .table-layouts .volume_24hrs {
+        display: none;
+    }
+    .table-layouts .open_interest {
+        display: none;
+    }
+    .table-layouts .funding {
+        display: none;
+    }
+}  
