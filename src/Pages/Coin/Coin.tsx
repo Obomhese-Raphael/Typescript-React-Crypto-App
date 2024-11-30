@@ -6,7 +6,7 @@ import "./Coin.css"
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md"
 import { CiStar, CiShare2, CiGlobe } from "react-icons/ci";
 import { FaStar, FaRedditAlien, FaGithub } from "react-icons/fa";
-import { MdOutlineRadioButtonUnchecked } from "react-icons/md";
+import { MdRadioButtonUnchecked } from "react-icons/md";
 import { RxCaretDown } from "react-icons/rx";
 import { HiMiniCheckBadge } from "react-icons/hi2";
 import { IoMdPaper } from "react-icons/io";
@@ -15,7 +15,7 @@ import { MdErrorOutline } from "react-icons/md";
 import { ImLink } from "react-icons/im";
 
 const Coin = () => {
-  const { coinId } = useParams();
+  const { coinId }: { coinId: string } = useParams();
   const { currency } = useContext(CoinContext);
   const [coinResponse, setCoinResponse] = useState<any>(null);
   const [isLiked, setIsLiked] = useState(false);
@@ -93,11 +93,11 @@ const Coin = () => {
                   <p>
                     {
                       coinResponse?.market_data.price_change_percentage_24h_in_currency[currency.name] > 0
-                        ? <p className="green rate"><MdArrowDropUp /> {coinResponse?.market_data?.
-                          price_change_percentage_24h_in_currency[currency.name].toFixed(2)
+                        ? <p className="green rate"><MdArrowDropUp /> {coinResponse?.market_data?.                        price_change_24h.toFixed(4)
+
                         }% (1d)</p>
                         : <p className="red rate"><MdArrowDropDown /> {coinResponse.market_data?.
-                          price_change_percentage_24h_in_currency[currency.name].toFixed(2)
+                          price_change_24h.toFixed(4)
                         }% (1d)</p>
                     }
                   </p>
@@ -289,7 +289,7 @@ const Coin = () => {
             <div className="circle flex">
               <p className="flex">
                 {formatNumber(coinResponse?.market_data?.circulating_supply, units)} {coinResponse?.symbol.toUpperCase()}
-                <MdOutlineRadioButtonUnchecked className="icon" />
+                <MdRadioButtonUnchecked className="icon" />
               </p>
             </div>
           </div>

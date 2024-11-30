@@ -258,6 +258,11 @@
     font-weight: bold;
 }
 
+.signup .little {
+  font-size: 13px;
+  color: #ecd9d9;
+}
+
 /* Media Queries */ 
 
 @media screen and (max-width: 1024px) {

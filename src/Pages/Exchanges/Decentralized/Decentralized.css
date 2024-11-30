@@ -264,33 +264,30 @@
 }
 
 
-button {
-  background-color: #4CAF50; /* Green background */
-  color: white; /* White text */
-  font-size: 16px; /* Font size */
-  padding: 10px 20px; /* Padding */
-  border: none; /* Remove borders */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background and scale */
-  margin-top: 10px; /* Spacing above the button */
+.decentralized .mini-dec button {
+  background-color: #4CAF50; 
+  color: white; 
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
 }
 
-/* Button Hover Effect */
-button:hover {
-  background-color: #45a049; /* Slightly darker green */
-  transform: scale(1.05); /* Slightly enlarge the button */
+.decentralized .mini-dec button:hover {
+  background-color: #45a049; 
+  transform: scale(1.05); 
 }
 
-/* Button Disabled State */
-button:disabled {
-  background-color: #ccc; /* Light gray background for disabled */
-  cursor: not-allowed; /* Change cursor to not-allowed */
-  transform: none; /* Remove scaling effect */
+.decentralized .mini-dec button:disabled {
+  background-color: #ccc; 
+  cursor: not-allowed; 
+  transform: none;
 }
 
-/* Optional: Button Focus (when clicked or focused) */
-button:focus {
-  outline: none; /* Remove default outline */
-  box-shadow: 0 0 5px rgba(0, 128, 0, 0.5); /* Green glow effect */
+.decentralized .mini-dec button:focus {
+  outline: none; 
+  box-shadow: 0 0 5px rgba(0, 128, 0, 0.5);
 }

@@ -124,14 +124,14 @@ const Decentralized = () => {
                 <select id="coins" multiple={true} value={coins} onChange={handleCoinChange}>
                   <option value="bitcoin">Bitcoin</option>
                   <option value="ethereum">Ethereum</option>
-                  <option value="litecoin">Litecoin</option>
+                  <option value="tether">Tether</option>
+                  <option value="solana">Solana</option>
+                  <option value="binancecoin">BNB</option>
+                  <option value="ripple">XRP</option>
                   <option value="doge">Dogecoin</option>
+                  <option value="litecoin">Litecoin</option>
                   <option value="cardano">Cardano</option>
                   <option value="polkadot">Polkadot</option>
-                  <option value="solana">Solana</option>
-                  <option value="steth">Lido Staked Ether</option>
-                  <option value="bnb">BNB</option>
-                  <option value="tether">Tether</option>
                 </select>
               </div>
 
