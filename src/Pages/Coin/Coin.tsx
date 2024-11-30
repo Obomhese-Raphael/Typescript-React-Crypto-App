@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useContext, useEffect, useState } from "react"
 import { CoinContext } from "../../Context/Context"
@@ -14,8 +15,14 @@ import { LiaStarSolid, LiaStarHalfAltSolid } from "react-icons/lia";
 import { MdErrorOutline } from "react-icons/md";
 import { ImLink } from "react-icons/im";
 
+interface CoinParams {
+  coinId: string;
+  [key: string]: string | undefined;
+}
+
 const Coin = () => {
-  const { coinId } = useParams();
+  const { coinId } = useParams<CoinParams>();
+  console.log("COIN ID: ", coinId);
   const { currency } = useContext(CoinContext);
   const [coinResponse, setCoinResponse] = useState<any>(null);
   const [isLiked, setIsLiked] = useState(false);
