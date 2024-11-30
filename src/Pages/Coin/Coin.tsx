@@ -15,7 +15,7 @@ import { MdErrorOutline } from "react-icons/md";
 import { ImLink } from "react-icons/im";
 
 const Coin = () => {
-  const { coinId }: { coinId: string } = useParams();
+  const { coinId } = useParams();
   const { currency } = useContext(CoinContext);
   const [coinResponse, setCoinResponse] = useState<any>(null);
   const [isLiked, setIsLiked] = useState(false);
