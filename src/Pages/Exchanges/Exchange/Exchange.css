@@ -52,6 +52,13 @@
   background: linear-gradient(rgba(36, 88, 190, 0.15),rgba(132, 43, 174, 0.15));
   border-radius: 15px;
 }
+.table-layouts .trust-score {
+    width: 50px;
+}
+.table-layouts .trust-score p {
+    font-size: 10px;
+    margin: auto;
+}
 
 .list-container .crypto-table .table-layouts {
   display: grid;
@@ -137,6 +144,12 @@
     .exchange .top{
         padding: 30px;
     }
+    .exchange .top h2 {
+        font-size: 13px;
+    }
+    .exchange .top p {
+        font-size: 10px;
+    }
     .exchange .exchange_change .containers{  
         display: flex;
         flex-direction: column;
@@ -199,5 +212,46 @@
         width: 25px;
         border: none;
         border-radius: 50%;
+    }
+    .crypto-table .table-layouts p {
+        font-size: 10px;
+    }
+    .crypto-table .table_info .rank {
+        font-size: 9px;
+    }
+    .crypto-table .table_info .pic_name {
+        font-size: 10px;
+    }
+    .crypto-table .table_info .image {
+        width: 20px;
+        height: 20px;
+    }
+    ._24vol {
+        text-align: center;
+    }
+    .table-layouts .trust_score {
+        text-align: center;
+    }
+    .table-layouts .trust_score ._score {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+    }
+    .pic_name.ellipses .name {
+        font-size: 12px;
+        width: 50px;
+    }
+    .table-layouts .trust-score {
+        width: 50px;
+    }
+    .table-layouts .trust-score p {
+        font-size: 6px;
+        margin: auto;
+    }
+    .table-layouts .volume_24 {
+        font-size: 8px;
+        margin: auto;
+        border: 1px solid red;
     }
 }

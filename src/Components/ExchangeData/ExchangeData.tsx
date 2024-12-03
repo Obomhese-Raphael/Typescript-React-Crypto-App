@@ -214,7 +214,7 @@ const ExchangeData = () => {
                   <div className="inner-site">
                     <a href={selectedExchange?.facebook_url}><FaFacebook />Facebook</a>
                     <a href={selectedExchange?.telegram_url}><FaTelegram />Telegram</a>
-                    <a href={selectedExchange?.reddit_url} target="_blank" rel="noopener noreferrer"><FaReddit />Reddit</a>
+                    <a className='none' href={selectedExchange?.reddit_url} target="_blank" rel="noopener noreferrer"><FaReddit />Reddit</a>
                     <a className='none' href={selectedExchange?.other_url_1} target="_blank" rel="noopener noreferrer"><FaLinkedin />LinkedIn</a>
                   </div>
                 </div>

@@ -133,7 +133,10 @@
     font-size: 12px;
   }
   .nav-right select {
-    font-size: 12px !important;
+    font-size: 10px !important;
+  }
+  .signup_button .button {
+    font-size: 10px;
   }
 }
 
@@ -222,5 +225,8 @@
     font-size: 14px;
   display: block;
   text-decoration: none;
-  }
+  }  
+.logo_name .name {
+  font-size: 12px;
+}
 }

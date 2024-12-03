@@ -46,7 +46,7 @@ const CoinsData = () => {
                 </h3>
             </div>
             <div className="hero">
-                <form onSubmit={handleSearch}>
+                <form onSubmit={handleSearch} className="form">
                     <input
                         type="text"
                         placeholder="Search cryptocurrencies..."
@@ -75,17 +75,17 @@ const CoinsData = () => {
                 {displayedCoin.slice(0, 10).map((item: any, index: number) => (
                     <Link to={`/coin/${item.id}`} className="table-layout" key={index}>
                         <p className="rank">{item.market_cap_rank}</p>
-                        <div>
+                        <div className="home_info">
                             <img className="image small_image" src={item.image} alt={item.name} />
-                          <p className="name">{`${item.name}`}</p>
-                          <p className="name name_symbol">- {item.symbol.toUpperCase()}</p>
+                            <p className="name">{`${item.name}`}</p>
+                            <p className="name name_symbol">- {item.symbol.toUpperCase()}</p>
                         </div>
                         <p className="price">
                             {currency.symbol} {item.current_price.toLocaleString()}
                         </p>
-                        <p className={item.price_change_percentage_24h > 0 ? "green" : "red"}>
-                            {item.price_change_percentage_24h.toFixed(2)}%
-                        </p>
+                        <div className="per_change">
+                            <p className={item.price_change_percentage_24h > 0 ? "green" : "red"}>{item.price_change_percentage_24h.toFixed(2)}%</p>
+                        </div>
                         <p className="market-cap">
                             {currency.symbol} {item.market_cap.toLocaleString()}
                         </p>

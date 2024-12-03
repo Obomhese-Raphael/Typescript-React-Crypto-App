@@ -31,11 +31,13 @@ const Cryptocurrencies = () => {
       <div className="">
         <div className=" mx_50 ccs">
           <h4 className="header">Today's Cryptocurrency Prices by Market Cap</h4>
-          <p className="text">The global crypto market cap <span className="bold">{currency.symbol}{formatNumber(globalMarketData?.data?.total_market_cap[currency.name], units)}</span>, a {
-            globalMarketData?.data?.market_cap_change_percentage_24h_usd.toFixed(2) > 0 ? <span className="color center"> <MdArrowDropUp className="arrow-up" /> {globalMarketData?.data?.market_cap_change_percentage_24h_usd.toFixed(2)
-            }</span> : <span className="red center"> <MdArrowDropDown className="arrow-down" /> {globalMarketData?.data?.market_cap_change_percentage_24h_usd.toFixed(2)
-            }</span>
-          } market cap change percentage over the last 24hrs. <span className="more">Read more</span></p>
+          <div className="full_text">
+            <p className="text">The global crypto market cap <span className="bold">{currency.symbol}{formatNumber(globalMarketData?.data?.total_market_cap[currency.name], units)}</span>, a {
+              globalMarketData?.data?.market_cap_change_percentage_24h_usd.toFixed(2) > 0 ? <span className="color center"> <MdArrowDropUp className="arrow-up" /> {globalMarketData?.data?.market_cap_change_percentage_24h_usd.toFixed(2)
+              }</span> : <span className="red center"> <MdArrowDropDown className="arrow-down" /> {globalMarketData?.data?.market_cap_change_percentage_24h_usd.toFixed(2)
+              }</span>
+            } market cap change percentage over the last 24hrs. <span className="more">Read more</span></p>
+          </div>
         </div>
         <div className="containers">
           <div className="container">
@@ -128,45 +130,45 @@ const Cryptocurrencies = () => {
                     </div>
                   </div>
                 </div>
-              </div>  
+              </div>
             </div>
           </div>
         </div>
       </div>
-        <div className="crypto-table"> 
-          <div className="table-layout">
-            <p>#</p>
-            <p>Name</p>
-            <p>Price</p>
-            <p className="_24hr" style={{ textAlign: "center" }}>24h %</p>
-            <p className="market-cap">Market Cap</p>
-            <p className="circulating_suppply">Circulating Supply</p>
-          </div>
-          {allCoin.slice(0, 100).map((item: any, index: number) => (
-            <Link to={`/coin/${item.id}`} className="table-layout" key={index}>
-              <p className="rank">{item.market_cap_rank}</p>
-              <div>
-                <img className="image" src={item.image} alt={item.name} />
-                <p className="name">{`${item.name}`}</p>
-                <p className="name name_symbol">- {item.symbol.toUpperCase()}</p>
-              </div>
-              <p className="price">
-                {currency.symbol} {item.current_price.toLocaleString()}
-              </p>
-              <p className={item.price_change_percentage_24h > 0 ? "green" : "red"}>
-                {item.price_change_percentage_24h.toFixed(2)}%
-              </p>
-              <p className="market-cap">
-                {currency.symbol} {item.market_cap.toLocaleString()}
-              </p>
-              <div className="circulating-supply">
-                <p className="cir_sup">
-                  {item.circulating_supply.toLocaleString()} {item.symbol.toUpperCase()}
-                </p>
-              </div>
-            </Link>
-          ))}
+      <div className="crypto-table">
+        <div className="table-layout">
+          <p>#</p>
+          <p>Name</p>
+          <p>Price</p>
+          <p className="_24hr" style={{ textAlign: "center" }}>24h %</p>
+          <p className="market-cap">Market Cap</p>
+          <p className="circulating_suppply">Circulating Supply</p>
         </div>
+        {allCoin.slice(0, 100).map((item: any, index: number) => (
+          <Link to={`/coin/${item.id}`} className="table-layout" key={index}>
+            <p className="rank">{item.market_cap_rank}</p>
+            <div>
+              <img className="image" src={item.image} alt={item.name} />
+              <p className="name">{`${item.name}`}</p>
+              <p className="name name_symbol">- {item.symbol.toUpperCase()}</p>
+            </div>
+            <p className="price">
+              {currency.symbol} {item.current_price.toLocaleString()}
+            </p>
+            <p className={item.price_change_percentage_24h > 0 ? "green" : "red"}>
+              {item.price_change_percentage_24h.toFixed(2)}%
+            </p>
+            <p className="market-cap">
+              {currency.symbol} {item.market_cap.toLocaleString()}
+            </p>
+            <div className="circulating-supply">
+              <p className="cir_sup">
+                {item.circulating_supply.toLocaleString()} {item.symbol.toUpperCase()}
+              </p>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   )
 }

@@ -92,4 +92,23 @@
   font-size: 17px;
   display: flex;
  }
+ .home-container .trending_coins {
+  font-size: 10px;
+ }
+ .home-container .trending_info .index {
+  font-size: 10px;
+ }
+ .home-container .trending_info  .coin_name {
+  font-size: 10px;
+ }
+ .home-container .trending_info .coin_image .img{
+  width: 20px;
+  height: 20px;
+ }
+ .home-container .market_cap {
+  font-size: 20px;
+ }
+ .home-container .price_change {
+  font-size: 12px;
+ }
 }

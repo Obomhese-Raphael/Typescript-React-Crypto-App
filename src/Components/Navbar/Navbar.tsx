@@ -64,9 +64,9 @@ const Navbar = () => {
     }
     return (
         <div className='navbar'>
-            <Link to={`/`}>
-                <h3>
-                    Crypto App 🪙
+            <Link className="logo_name" to={`/`}>
+                <h3 className="name">
+                    Crypto App🪙
                 </h3>
             </Link>
             <ul className="ul">
@@ -89,8 +89,8 @@ const Navbar = () => {
                     <option value="inr">INR</option>
                     <option value="ngn">NGN</option>
                 </select>
-                <Link to={`/signup`}>
-                    <button>
+                <Link className="signup_button" to={`/signup`}>
+                    <button className="button">
                         Sign up <img src={arrow_icon} />
                     </button>
                 </Link>

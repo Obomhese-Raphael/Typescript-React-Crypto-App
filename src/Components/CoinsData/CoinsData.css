@@ -107,6 +107,13 @@
   font-size: 12px;
 }
 
+.table-layout .per_change {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .cir_sup {
   text-align: right;
   margin: auto;
@@ -129,6 +136,10 @@
   .name_symbol {
     display: none;
   }
+  .coins-data .hero form {
+    width: 100%;
+    max-width: 1000px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -136,9 +147,28 @@
     width: 25px;
   }
   .table-layout {
-    font-size: 13px;
+    font-size: 10px;
   }
   .hero form input {
     width: 100px;
+  }
+  .table-layout .rank {
+    font-size: 10px;
+  }
+  .table-layout .image.small_image {
+    width: 20px;
+    height: 20px;
+  }
+  .table-layout .home_info .name {
+    font-size: 10px;
+  }
+  .table-layout .price {
+    font-size: 10px;
+  }
+  .table-layout .per_change .green {
+    font-size: 10px;
+  }
+  .table-layout .per_change .red {
+    font-size: 10px;
   }
 }

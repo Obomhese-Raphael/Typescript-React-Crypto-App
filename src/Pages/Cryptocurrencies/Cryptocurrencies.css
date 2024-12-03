@@ -284,12 +284,25 @@
   display: none;
 }
 
+.full_text .text {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+}
+
 
 /* Media Queries */
 
 @media (max-width: 768px) {
   .ccs .market-cap {
     display: none;
+  }
+  .full_text{
+    display: flex;
+    width: 100%;
+    display: none;
+    max-width: 1000px;
+    flex-direction: row;
   }
   .ccs .circulating_suppply {
     display: none;

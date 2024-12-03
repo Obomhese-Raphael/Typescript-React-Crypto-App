@@ -14,7 +14,7 @@ import { CoinContext } from "../../../Context/Context"
 const Exchange = () => {
   const { exchangeList } = useContext(CoinContext);
   return (
-    <div className="exchange">
+    <div className="exchange">   
       <div className="top"> 
         <h2>Top Crypto Exchanges Ranked by Trust Score</h2>
         <p>As of today, we track 216 crypto exchanges with a total 24h trading volume of $347 Billion, a -29.25% change in the last 24 hours. Currently, the 3 largest cryptocurrency exchanges are Binance, Coinbase Exchange, and Bybit. Total tracked crypto exchange reserves currently stands at $241 Billion.</p>
@@ -38,16 +38,16 @@ const Exchange = () => {
             <p>#</p> 
             <p>Exchange</p>
             <div className="trust_score">
-              <p>Trust Score <AiFillExclamationCircle /></p>
+              <p className="_score">Trust Score <AiFillExclamationCircle /></p>
             </div>
-            <p className="_24hr">24h Volume</p>
+            <p className="_24hr _24vol">24h Volume</p>
             <p className="monthly-visits">Monthly Visits</p>
             <p className="country_hdd">Country</p>
             <p className="link linked">Link</p>
           </div>
           {exchangeList.slice(0, 100).map((item: any, index: number) => (
             <div className="table-layouts table_info" key={index}>
-              <p className="rank">{index + 1}</p>
+              <p className="rank index">{index + 1}</p>
               <Link className="pic_name ellipses" to={`/exchanges/${item.id}`}>
                 <img className="image" src={item.image} alt={item.name} />
                 <p className="name">{`${item.name}`}</p>
@@ -56,9 +56,9 @@ const Exchange = () => {
                     ? <BsDatabaseFillCheck /> : <BsDatabaseFillX />}
                 </span>
               </Link>
-              <p className="price trust-score">
-                {item.trust_score} / 10
-              </p>
+              <div className="price trust-score">
+                <p>{item.trust_score} / 10</p>
+              </div>
               <p className="volume_24">
                 {item.trade_volume_24h_btc.toLocaleString()}
               </p>

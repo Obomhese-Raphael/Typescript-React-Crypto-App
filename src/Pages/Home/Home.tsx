@@ -46,10 +46,10 @@ const Home = () => {
       <div className="home main-container">
         <div className="home-container">
           <p className="trending_coins">Trending Coins</p>
-          <Link to={`/coin/${coin.id}`} className="thumb">
-            <p>{currentIndex + 1}.</p>
-            <h3>{coin.name}</h3>
-            <div>
+          <Link to={`/coin/${coin.id}`} className="thumb trending_info">
+            <p className="index">{currentIndex + 1}.</p>
+            <h3 className="coin_name">{coin.name}</h3>
+            <div className="coin_image">
               <div
                 className="img"
                 style={{
