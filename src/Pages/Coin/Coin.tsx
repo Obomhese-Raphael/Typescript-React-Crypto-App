@@ -122,14 +122,14 @@ const Coin = () => {
                 <div className="amount">
                   <div className="inner_amount">
                     <p className="amount_price">{currency.symbol}{coinResponse?.market_data?.current_price[currency.name].toLocaleString()}</p>
-                    <p>
+                    <p className="percentage_change">
                       {
                         coinResponse?.market_data.price_change_percentage_24h_in_currency[currency.name] > 0
-                          ? <p className="green rate"><MdArrowDropUp /> {coinResponse?.market_data?.price_change_24h.toFixed(4)
+                          ? <p className="green rate"><MdArrowDropUp /> {coinResponse?.market_data?.price_change_24h.toFixed(2)
 
                           }% (1d)</p>
                           : <p className="red rate"><MdArrowDropDown /> {coinResponse.market_data?.
-                            price_change_24h.toFixed(4)
+                            price_change_24h.toFixed(2)
                           }% (1d)</p>
                       }
                     </p>
@@ -167,8 +167,8 @@ const Coin = () => {
             <div className="top-container website">
               <div className="left-container mini-containers">
                 <div className="bitcoin-stats-container">
-                  <div className="stat-section">
-                    <p>Market Cap</p>
+                  <div className="stat-section mini-stat">
+                    <p className="hd_1">Market Cap</p>
                     <div className="flex">
                       <p>{[currency.symbol]}{formatNumber(coinResponse?.market_data?.market_cap[currency.name], units)}</p>
                       <p className="change">
@@ -185,23 +185,23 @@ const Coin = () => {
                     </div>
                   </div>
                   <div className="stat-section">
-                    <p>Total Volume</p>
+                    <p className="hd">Total Volume</p>
                     <p>{[currency.symbol]}{formatNumber(coinResponse?.market_data?.total_volume[currency.name], units)}</p>
                   </div>
                   <div className="stat-section">
-                    <p>FDV</p>
+                    <p className="hd">FDV</p>
                     <p>{[currency.symbol]}{formatNumber(coinResponse?.market_data?.fully_diluted_valuation[currency.name], units)}</p>
                   </div>
                   <div className="stat-section">
-                    <p>Low 24h</p>
+                    <p className="hd">Low 24h</p>
                     <p>{[currency.symbol]}{coinResponse?.market_data?.low_24h[currency.name].toLocaleString()}</p>
                   </div>
                   <div className="stat-section">
-                    <p>Total Supply</p>
+                    <p className="hd">Total Supply</p>
                     <p>{formatNumber(coinResponse?.market_data?.total_supply, units)} {coinResponse?.symbol.toUpperCase()}</p>
                   </div>
                   <div className="stat-section">
-                    <p>Max Supply</p>
+                    <p className="hd">Max Supply</p>
                     {
                       <p>{formatNumber(coinResponse?.market_data?.max_supply, units)} {coinResponse?.symbol.toUpperCase()}</p>
                     }

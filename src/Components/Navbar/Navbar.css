@@ -226,7 +226,7 @@
   display: block;
   text-decoration: none;
   }  
-.logo_name .name {
-  font-size: 12px;
-}
+  .logo_name .name {
+    font-size: 20px;
+  }
 }

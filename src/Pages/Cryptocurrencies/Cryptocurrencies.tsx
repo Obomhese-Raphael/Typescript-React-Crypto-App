@@ -30,7 +30,7 @@ const Cryptocurrencies = () => {
     <div className="cryptocurrencies">
       <div className="">
         <div className=" mx_50 ccs">
-          <h4 className="header">Today's Cryptocurrency Prices by Market Cap</h4>
+          <h4 className="header smaller">Today's Cryptocurrency Prices by Market Cap</h4>
           <div className="full_text">
             <p className="text">The global crypto market cap <span className="bold">{currency.symbol}{formatNumber(globalMarketData?.data?.total_market_cap[currency.name], units)}</span>, a {
               globalMarketData?.data?.market_cap_change_percentage_24h_usd.toFixed(2) > 0 ? <span className="color center"> <MdArrowDropUp className="arrow-up" /> {globalMarketData?.data?.market_cap_change_percentage_24h_usd.toFixed(2)
@@ -135,7 +135,7 @@ const Cryptocurrencies = () => {
           </div>
         </div>
       </div>
-      <div className="crypto-table">
+      <div className="crypto-table cryptocurrencies-table">
         <div className="table-layout">
           <p>#</p>
           <p>Name</p>

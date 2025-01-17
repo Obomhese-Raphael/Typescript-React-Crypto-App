@@ -417,4 +417,15 @@
   align-items: center;
   border-bottom: 1px solid #3c3c3c;
 }
+.share {
+    display: none;
+}
+
+.amount .amount_price {
+    font-size: 20px;
+    padding-left: 10px;
+}
+.percentage_change .green.rate {
+    font-size: 10px;
+}
 }

@@ -93,7 +93,7 @@ const NftData = () => {
                             <div className="amount">
                                 <div className="inner_amount">
                                     <p className="amount_price">{currency.symbol}{nftResponse?.floor_price.usd.toLocaleString()}</p>
-                                    <p>
+                                    <p className="percentage_change">
                                         {
                                             nftResponse.floor_price_24h_percentage_change.usd > 0
                                                 ? <p className="green rate"><MdArrowDropUp /> {nftResponse.floor_price_24h_percentage_change.usd.toFixed(2)

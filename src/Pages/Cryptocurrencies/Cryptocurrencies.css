@@ -386,4 +386,31 @@
  .cryptocurrencies{
   padding: 10px;
  }
+ .mx_50.ccs .header.smaller {
+  font-size: 15px;
+  font-weight: bold;
+  font-style: italic;
+ }
+ .coin-card.block {
+   text-align: justify;
+ }
+ .coin-card.block p {
+  width: 100%;
+ }
+ .coin-card.blocked {
+  gap: 10px;
+  display: flex;
+  text-align: center;
+ }
+  .coin-card.blocked .color_green {
+    padding: 0px;
+    padding-bottom: 5px;
+  }
+  .crypto-table.cryptocurrencies-table .image {
+    width: 20px;
+  }
+
+  .crypto-table.cryptocurrencies-table .name {
+    font-size: 10px;
+  }
 }
