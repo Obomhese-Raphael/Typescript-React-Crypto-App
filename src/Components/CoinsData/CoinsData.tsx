@@ -28,7 +28,6 @@ const CoinsData = () => {
         }
         );
         setDisplayedCoin(filteredCoins);
-        console.log(filteredCoins);
         setInput("");
     };
 

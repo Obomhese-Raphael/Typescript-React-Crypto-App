@@ -1,11 +1,75 @@
 .nft .mx_70 {
-    margin: 50px 100px;
+  margin: 50px 100px;
+}
+
+.mx_70.ccs .text {
+  font-size: 12px;
 }
 
 .table-layout .avg_price {
   text-align: center;
 }
 
+
+/* Fix the overlapping Avg Price */
+.avg_price, .cir_sup {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.85rem;
+}
+
+.small_container.lined {
+  padding: 20px;
+  min-height: 160px; /* Give them consistent height */
+  justify-content: space-between;
+}
+
+/* Ensure the price and percentage sit on one line nicely */
+.lined .linedd {
+  display: flex;
+  align-items: baseline; 
+  gap: 10px;
+  margin-top: auto; /* Push data to the bottom of the card */
+}
+
+/* Fix the "Notes" list squashing */
+.coin-card.blocked {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Adds breathing room between list items */
+  align-items: flex-start;
+}
+
+.toggle-container {
+  background: rgba(255, 255, 255, 0.15); /* Glass effect */
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+}
+
+/* The container should stay flex to keep img and text aligned */
+.names {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 250px; /* Limit the total width of the cell */
+  min-width: 0;  /* Critical: allows flex children to shrink below their content size */
+}
+
+/* This targets the actual text string */
+.namess {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1; /* Tells this specific paragraph to take up the available space and then truncate */
+}
+
+.name_symbol {
+  white-space: nowrap; /* Keeps the "- ETH" part from wrapping */
+}
 .nft {
   margin-bottom: 50px;
 }

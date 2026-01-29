@@ -198,6 +198,14 @@
     font-size: 12px;
 }
 
+.notes .block{
+  align-items: start;
+}
+
+.coin-price.space{
+  gap: 10px;
+}
+
 .small_container .block {
     display: flex;
     flex-direction: column;
@@ -284,12 +292,50 @@
   display: none;
 }
 
+/* Change this to allow natural text wrapping */
 .full_text .text {
   width: 100%;
-  display: flex;
-  gap: 5px;
+  display: block; /* Standard text flow */
+  line-height: 1.6;
+  font-size: 14px; /* Adjust to match your design */
+  color: #fff;
 }
 
+/* Create a helper class for the green/red percentage units */
+.full_text .center {
+  display: inline-flex;
+  align-items: center; /* Vertically aligns arrow with text */
+  gap: 2px;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+.full_text .bold {
+  font-weight: 700;
+  margin-left: 4px;
+}
+/* Ensure the container holds them in a clean row */
+.small_container.lined {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between Header and Data */
+}
+
+/* This is the row containing the Price and Percentage */
+.lined .linedd {
+  display: flex;
+  flex-direction: row; /* Force horizontal */
+  align-items: baseline; /* Aligns text by the bottom of the letters */
+  gap: 8px; /* Precise space between $3.1T and -2.55% */
+  height: auto; /* Let content dictate height */
+}
+
+.lined .linedd p {
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+  line-height: 1; /* Prevents hidden padding from vertical misalignment */
+}
 
 /* Media Queries */
 

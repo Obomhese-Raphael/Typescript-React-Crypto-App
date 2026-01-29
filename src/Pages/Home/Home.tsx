@@ -1,74 +1,110 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import "./Home.css";
 import { CoinContext } from "../../Context/Context";
 import CoinsData from "../../Components/CoinsData/CoinsData";
 import { Link } from "react-router-dom";
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
-
+import { MinimalSpinner } from "../../Components/Spinner/Spinner";
+import { useTrendingCarousel } from "../../hooks/useTrendingCarousel";
 
 const Home = () => {
-  const { trendingCoin } = useContext(CoinContext);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const {
+    trendingCoin,
+    loadingTrending,
+    errorTrending,
+    currency,
+  } = useContext(CoinContext);
+
+  const [isPaused, setIsPaused] = useState(false);
+
   const topCoins = trendingCoin.slice(0, 10);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === topCoins.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000);
+  const { currentItem } = useTrendingCarousel({
+    items: topCoins,
+    interval: 5000,
+    pause: isPaused,
+    resetKey: currency.name, // 🔥 sync with selected currency
+  });
 
-    return () => clearInterval(interval);
-  }, [topCoins.length, trendingCoin]);
-
-  if (!trendingCoin || trendingCoin.length === 0) {
-    return <p>Loading...</p>;
+  // ── Loading ──
+  if (loadingTrending) {
+    return (
+      <div className="min-h-[60vh] flex items-center justify-center">
+        <MinimalSpinner />
+      </div>
+    );
   }
 
-  const coin = topCoins[currentIndex].item;
+  // ── Error ──
+  if (errorTrending) {
+    return (
+      <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
+        <div className="text-red-400 text-2xl mb-4">⚠️</div>
+        <h2 className="text-xl font-semibold text-slate-200 mb-2">
+          Something went wrong
+        </h2>
+        <p className="text-slate-400 mb-6">{errorTrending}</p>
+      </div>
+    );
+  }
+
+  // ── No data ──
+  if (!currentItem) {
+    return (
+      <div className="min-h-[60vh] flex items-center justify-center text-slate-400">
+        No trending coins available
+      </div>
+    );
+  }
+
+  const coin = currentItem.item;
   const priceChangeData = coin.data.price_change_percentage_24h;
+  const currencyKey = Object.keys(priceChangeData)[0];
+  const priceChangeValue = priceChangeData[currencyKey];
 
-  const currencyKeys = Object.keys(priceChangeData);
-  const currentCurrencyKey = currencyKeys[0];
-
-  let changeIcon;
-  const priceChangeValue = priceChangeData[currentCurrencyKey];
-
-  if (priceChangeValue > 0) {
-    changeIcon = <MdArrowDropUp />
-  } else {
-    changeIcon = <MdArrowDropDown />
-  }
+  const changeIcon =
+    priceChangeValue > 0 ? <MdArrowDropUp /> : <MdArrowDropDown />;
 
   return (
-    <div className="">
+    <div>
       <div className="home main-container">
-        <div className="home-container">
-          <p className="trending_coins">Trending Coins</p>
+        <div
+          className="home-container"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           <Link to={`/coin/${coin.id}`} className="thumb trending_info">
-            <p className="index">{currentIndex + 1}.</p>
             <h3 className="coin_name">{coin.name}</h3>
+
             <div className="coin_image">
               <div
                 className="img"
                 style={{
                   backgroundImage: `url(${coin.large})`,
-                  height: '40px',
-                  width: '40px',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
+                  height: "40px",
+                  width: "40px",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
                 }}
-              ></div>
+              />
             </div>
           </Link>
-          <p className="market_cap">{coin.data.market_cap.toLocaleString()}</p>
-          <p className={`price_change ${priceChangeData[currentCurrencyKey] > 0 ? "green" : "red"}`}>
+
+          <p className="market_cap">
+            {coin.data.market_cap.toLocaleString()}
+          </p>
+
+          <p
+            className={`percentage price_change ${
+              priceChangeValue > 0 ? "green" : "red"
+            }`}
+          >
             {changeIcon}
-            {priceChangeData[currentCurrencyKey].toFixed(2)}%
+            {priceChangeValue.toFixed(2)}%
           </p>
         </div>
       </div>
+
       <CoinsData />
     </div>
   );

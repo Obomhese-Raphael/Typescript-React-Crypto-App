@@ -34,7 +34,6 @@ const DerivativeData = () => {
         fetch(`https://api.coingecko.com/api/v3/derivatives/exchanges/${derivativeId}`, options)
             .then((response) => response.json())
             .then((response) => {
-                console.log("Derivative response: ", response);
                 setSelectedDerivative(response);
             })
             .catch((error) => console.error(error));
@@ -53,7 +52,6 @@ const DerivativeData = () => {
         fetch(`https://api.coingecko.com/api/v3/derivatives`, options)
             .then((response) => response.json())
             .then((response) => {
-                console.log("Derivative Tickers: ", response);
                 setSelectedDerivativeTickers(response);
             })
             .catch((error) => console.error(error));

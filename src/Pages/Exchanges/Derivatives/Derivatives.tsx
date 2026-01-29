@@ -21,7 +21,6 @@ const Derivatives = () => {
     fetch("https://api.coingecko.com/api/v3/derivatives/exchanges", options)
       .then((response) => response.json())
       .then((response) => {
-        console.log("Derivatives List: ", response);
         setDerivativeList(response);
       })
       .catch((err) => console.error(err));

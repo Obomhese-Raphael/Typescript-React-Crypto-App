@@ -4,157 +4,187 @@ import { createContext, useEffect, useState, ReactNode } from "react";
 export const CoinContext = createContext<any>(null);
 
 type CoinContextProviderProps = {
-    children: ReactNode;
+  children: ReactNode;
 };
 
-const apiKey = import.meta.env.VITE_API_KEY
+const apiKey = import.meta.env.VITE_API_KEY;
 
 const CoinContextProvider = ({ children }: CoinContextProviderProps) => {
-    const [allCoin, setAllCoin] = useState([]);
-    const [trendingCoin, setTrendingCoin] = useState([]);
-    const [globalMarketData, setGlobalMarketData] = useState([]);
-    const [nftMarketData, setNftMarketData] = useState([]);
-    const [trendingNFTs, setTrendingNFTs] = useState([]);
-    const [trendingCategories, setTrendingCategories] = useState([]);
-    const [nftList, setNftList] = useState([]);
-    const [exchangeList, setExchangeList] = useState([]);
-    const [currency, setCurrency] = useState({
-        name: "usd",
-        symbol: "$",
-    });
+  const [allCoin, setAllCoin] = useState<any[]>([]);
+  const [trendingCoin, setTrendingCoin] = useState<any[]>([]);
+  const [trendingNFTs, setTrendingNFTs] = useState<any[]>([]);
+  const [trendingCategories, setTrendingCategories] = useState<any[]>([]);
+  const [globalMarketData, setGlobalMarketData] = useState<any>(null);
+  const [exchangeList, setExchangeList] = useState<any[]>([]);
 
-    const fetchAllCoin = async () => {
-        const options = {
-            method: "GET",
-            headers: {
-                accept: "application/json",
-                "x-cg-demo-api-key": apiKey,
-            },
-        };
+  const [currency, setCurrency] = useState({
+    name: "usd",
+    symbol: "$",
+  });
 
-        fetch(
-            `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}`,
-            options
-        )
-            .then((response) => response.json())
-            .then((response) => {
-                console.log("All Coin", response);
-                setAllCoin(response)
-            })
-            .catch((error) => console.error(error));
+  // Loading & error states
+  const [loadingAllCoins, setLoadingAllCoins] = useState(true);
+  const [loadingTrending, setLoadingTrending] = useState(true);
+  const [loadingGlobal, setLoadingGlobal] = useState(true);
+  const [loadingExchanges, setLoadingExchanges] = useState(true);
+
+  const [errorAllCoins, setErrorAllCoins] = useState<string | null>(null);
+  const [errorTrending, setErrorTrending] = useState<string | null>(null);
+  const [errorGlobal, setErrorGlobal] = useState<string | null>(null);
+  const [errorExchanges, setErrorExchanges] = useState<string | null>(null);
+
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      "x-cg-demo-api-key": apiKey,
+    },
+  };
+
+  const fetchAllCoin = async () => {
+    setLoadingAllCoins(true);
+    setErrorAllCoins(null);
+    try {
+      const res = await fetch(
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}&order=market_cap_desc&per_page=100&page=1&sparkline=false`,
+        options,
+      );
+
+      if (!res.ok) {
+        if (res.status === 429)
+          throw new Error(
+            "Rate limit exceeded. Wait 1-2 minutes and try again.",
+          );
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+
+      const data = await res.json();
+      setAllCoin(data);
+    } catch (err: any) {
+      console.error("All Coins fetch failed:", err);
+      setErrorAllCoins(err.message || "Failed to load coins");
+    } finally {
+      setLoadingAllCoins(false);
+    }
+  };
+
+  const fetchTrendingCoin = async () => {
+    setLoadingTrending(true);
+    setErrorTrending(null);
+    try {
+      const res = await fetch(
+        "https://api.coingecko.com/api/v3/search/trending",
+        options,
+      );
+
+      if (!res.ok) {
+        if (res.status === 429)
+          throw new Error("Rate limit exceeded. Wait 1-2 minutes.");
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+
+      const data = await res.json();
+      setTrendingCoin(data.coins || []);
+      setTrendingNFTs(data.nfts || []);
+      setTrendingCategories(data.categories || []);
+    } catch (err: any) {
+      console.error("Trending fetch failed:", err);
+      setErrorTrending(err.message || "Failed to load trending");
+    } finally {
+      setLoadingTrending(false);
+    }
+  };
+
+  const getGlobalMarketData = async () => {
+    setLoadingGlobal(true);
+    setErrorGlobal(null);
+    try {
+      const res = await fetch(
+        "https://api.coingecko.com/api/v3/global",
+        options,
+      );
+
+      if (!res.ok) {
+        if (res.status === 429) throw new Error("Rate limit exceeded.");
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+
+      const data = await res.json();
+      setGlobalMarketData(data.data || null);
+    } catch (err: any) {
+      console.error("Global fetch failed:", err);
+      setErrorGlobal(err.message || "Failed to load global data");
+    } finally {
+      setLoadingGlobal(false);
+    }
+  };
+
+  const getExchangeListWithData = async () => {
+    setLoadingExchanges(true);
+    setErrorExchanges(null);
+    try {
+      const res = await fetch(
+        "https://api.coingecko.com/api/v3/exchanges",
+        options,
+      );
+
+      if (!res.ok) {
+        if (res.status === 429) throw new Error("Rate limit exceeded.");
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+
+      const data = await res.json();
+      setExchangeList(data);
+    } catch (err: any) {
+      console.error("Exchanges fetch failed:", err);
+      setErrorExchanges(err.message || "Failed to load exchanges");
+    } finally {
+      setLoadingExchanges(false);
+    }
+  };
+
+  // Initial load - sequential to respect rate limits better
+  useEffect(() => {
+    const loadInitialData = async () => {
+      await fetchTrendingCoin(); // Most important for Home
+      await getGlobalMarketData();
+      await getExchangeListWithData();
     };
 
-    const fetchTrendingCoin = async () => {
-        const options = {
-            method: "GET",
-            headers: {
-                accept: "application/json",
-                "x-cg-demo-api-key": apiKey,
-            },
-        };
-        fetch(`https://api.coingecko.com/api/v3/search/trending`, options)
-            .then(response => response.json())
-            .then(response => {
-                console.log("Trending Coins", response)
-                setTrendingCoin(response.coins)
-                setTrendingNFTs(response.nfts)
-                setTrendingCategories(response.categories)
-            })
-            .catch(err => console.error(err));
-    }
+    loadInitialData();
+  }, []); // Only once on mount
 
-    const getGlobalMarketData = async () => {
-        const options = {
-            method: "GET",
-            headers: {
-                accept: "application/json",
-                "x-cg-demo-api-key": apiKey,
-            },
-        };
+  // Refetch coins when currency changes
+  useEffect(() => {
+    fetchAllCoin();
+  }, [currency]);
 
-        fetch('https://api.coingecko.com/api/v3/global', options)
-            .then(response => response.json())
-            .then(response => {
-                setGlobalMarketData(response);
-                console.log("Global market data: ", response);
-            })
-            .catch(err => console.error(err));
-    }
+  const contextValue = {
+    allCoin,
+    loadingAllCoins,
+    errorAllCoins,
 
-    const getNftMarketData = async () => {
-        const options = {
-            method: "GET",
-            headers: {
-                accept: "application/json",
-                "x-cg-demo-api-key": apiKey,
-            },
-        };
+    trendingCoin,
+    trendingNFTs,
+    trendingCategories,
+    loadingTrending,
+    errorTrending,
 
-        fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&include_market_cap=true&include_24hr_vol=true&include_market_cap_change_24hr=true&include_last_updated_at=true&order=market_cap_desc', options)
-            .then(response => response.json())
-            .then(response => {
-                console.log("NFT Market data: ", response);
-                setNftMarketData(response);
-            })
-            .catch(err => console.error(err));
-    }
+    globalMarketData,
+    loadingGlobal,
+    errorGlobal,
+    
+    exchangeList,
+    loadingExchanges,
+    errorExchanges,
 
-    const getExchangeListWithData = async () => {
-        const options = {
-            method: "GET",
-            headers: {
-                accept: "application/json",
-                "x-cg-demo-api-key": apiKey,
-            },
-        };
+    currency,
+    setCurrency,
+  };
 
-        fetch('https://api.coingecko.com/api/v3/exchanges', options)
-            .then(response => response.json())
-            .then(response => {
-                console.log("Exchange List", response);
-                setExchangeList(response);
-            })
-            .catch(err => console.error(err));
-    }
-
-    useEffect(() => {
-        fetchAllCoin();
-    }, [currency]);
-
-    useEffect(() => {
-        fetchTrendingCoin();
-        getGlobalMarketData();
-        getNftMarketData();
-        getExchangeListWithData();
-    }, []);
-
-    const contextValue = {
-        allCoin,
-        trendingCoin,
-        currency,
-        setCurrency,
-        fetchCoinData: fetchAllCoin,
-        fetchTrendingCoinData: fetchTrendingCoin,
-        setTrendingCoin,
-        globalMarketData,
-        setGlobalMarketData,
-        nftMarketData,
-        setNftMarketData,
-        trendingNFTs,
-        setTrendingNFTs,
-        trendingCategories,
-        setTrendingCategories,
-        nftList,
-        setNftList,
-        exchangeList,
-        setExchangeList,
-    };
-
-    return (
-        <CoinContext.Provider value={contextValue}>
-            {children}
-        </CoinContext.Provider>
-    );
+  return (
+    <CoinContext.Provider value={contextValue}>{children}</CoinContext.Provider>
+  );
 };
 
 export default CoinContextProvider;

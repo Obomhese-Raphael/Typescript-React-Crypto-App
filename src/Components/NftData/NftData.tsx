@@ -34,7 +34,6 @@ const NftData = () => {
 
             if (response.ok) {
                 setNftResponse(data);
-                console.log("NFT Collection Data: ", data);
             } else {
                 console.error("Error fetching NFT data: ", data.error);
             }
@@ -139,8 +138,8 @@ const NftData = () => {
                                 <div className="stat-section">
                                     <p>Market Cap</p>
                                     <div className="flex">
-                                        <p>{[currency.symbol]}{formatNumber(nftResponse?.market_cap.usd, units)}</p>
-                                        <p className="change">
+                                        <p className="small">{[currency.symbol]}{formatNumber(nftResponse?.market_cap.usd, units)}</p>
+                                        <p className="change small">
                                             {
                                                 nftResponse.market_cap_24h_percentage_change.usd > 0
                                                     ? <p className="green rate change"><MdArrowDropUp /> {nftResponse?.market_cap_24h_percentage_change.usd.toFixed(2)
@@ -153,20 +152,20 @@ const NftData = () => {
                                 </div>
                                 <div className="stat-section">
                                     <p>Total Volume</p>
-                                    <p>{[currency.symbol]}{formatNumber(nftResponse?.volume_24h.usd, units)}</p>
+                                    <p className="dec">{[currency.symbol]}{formatNumber(nftResponse?.volume_24h.usd, units)}</p>
                                 </div>
                                 <div className="stat-section">
                                     <p>ATH</p>
-                                    <p>{[currency.symbol]}{formatNumber(nftResponse?.ath.usd, units)}</p>
+                                    <p className="dec">{[currency.symbol]}{formatNumber(nftResponse?.ath.usd, units)}</p>
                                 </div>
                                 <div className="stat-section">
                                     <p>Total Supply</p>
-                                    <p>{formatNumber(nftResponse?.total_supply, units)} {nftResponse?.symbol.toUpperCase()}</p>
+                                    <p className="dec">{formatNumber(nftResponse?.total_supply, units)} {nftResponse?.symbol.toUpperCase()}</p>
                                 </div>
                                 <div className="stat-section">
                                     <p>Vol % (24h)</p>
                                     {
-                                        <p>{formatNumber(nftResponse?.
+                                        <p className="dec">{formatNumber(nftResponse?.
                                             volume_24h_percentage_change.usd.toFixed(2), units)} {nftResponse?.symbol.toUpperCase()}</p>
                                     }
                                 </div>

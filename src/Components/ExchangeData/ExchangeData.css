@@ -113,23 +113,19 @@
   align-items: center;
   border-bottom: 1px solid #3c3c3c;
 }
-
 .table-layouts .trust_p {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px; /* Adjust size of the circle here */
 }
 
 .green_full {
-    color: green;
-    content: fill;
-    text-rendering: auto;
-    border-radius: 50%;
+    color: green; 
 }
 
 .yellow_full {
-    color: yellow;
-    content: fill;
-    text-rendering: auto;
-    border-radius: 50%;
+    color: yellow; 
 }
 
 .spot-market .heads {

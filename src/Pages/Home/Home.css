@@ -31,7 +31,7 @@
 }
 
 .market_cap {
-  font-size: 40px;
+  font-size: 25px;
 }
 
 .price_change {
@@ -81,6 +81,16 @@
   align-items: center;
   justify-content: center;
 }
+
+.percentage{
+  display: flex;
+  gap: 5px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  font-size: 10px
+}
+
+
 
 /* media Queries */
 

@@ -50,6 +50,28 @@
     color: #a1a1a1;
 }
 
+.choice button {
+  padding: 8px 16px;
+  margin: 0 4px;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.choice button:hover {
+  background: rgba(59, 130, 246, 0.1);
+  color: white;
+}
+
+.choice button.active {
+  background: #3b82f6;
+  color: white;
+  font-weight: 600;
+}
+
 .small_rank {
     display: flex;
     align-items: center;

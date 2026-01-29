@@ -10,8 +10,170 @@
   border-bottom: 2px solid #3c3c3c;
 }
 
+/* ──────────────────────────────────────────────── */
+/* Fix avatar cropping & duplicate icons           */
+/* ──────────────────────────────────────────────── */
+
+/* Force avatar to be perfect circle, no clipping */
+.cl-avatarBox,
+.cl-avatarImage,
+.cl-avatarImage > img {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* Remove any background/padding that causes white pill */
+.cl-userButtonTrigger,
+.cl-userButton,
+.cl-userButtonBox {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Prevent flex shrink on avatar container */
+.user-button,
+.user-button > div,
+.cl-userButtonTrigger {
+  flex-shrink: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Desktop only: hide mobile auth avatar */
+@media (min-width: 768px) {
+  .mobile-auth .cl-userButtonTrigger {
+    display: none !important;
+  }
+}
+
+/* Mobile menu auth styling */
+.mobile-auth {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1.5rem;
+}
+
+/* Ensure navbar doesn't clip avatar */
+.nav-right,
+.auth-section {
+  overflow: visible !important;
+}
+
+/* 1. Fix the cutting/cropping issue */
+.cl-userButtonTrigger {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* 2. Force the avatar container to remain a perfect circle */
+.cl-avatarBox {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+}
+
+/* 3. Remove that white pill background seen in your screenshot */
+.cl-userButtonBox {
+  background: transparent !important;
+}
+
 .navbar .logo {
   width: max(12vw, 120px);
+}
+
+.logo_name .name{
+  font-size: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.user-button{
+  display: flex;
+  align-items: center;
+}
+
+/* Prevent Clerk avatar from shrinking */
+.user-button,
+.cl-userButtonTrigger,
+.cl-avatarBox {
+  flex-shrink: 0;
+}
+
+.cl-avatarBox {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+}
+
+
+/* Remove Clerk UserButton white background */
+.cl-userButtonBox,
+.cl-userButtonTrigger,
+.cl-userButton {
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Ensure only the circle avatar shows */
+.cl-avatarBox {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Mobile menu close button styling */
+.mobile_menus button {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.mobile_menus .close-icon{
+  margin-left: 10%;
+  font-size: 20px;
+  width: 50px;
+  border: none;
+  border-radius: 50%;
+  height: 50px;
+}
+
+.mobile_menus .close-icon:hover{
+  background: rgba(213, 216, 220, 0.3);;
+}
+
+.mobile_menus button:hover {
+  background: rgba(213, 216, 220, 0.3);
+  transform: scale(1.1);
+}
+
+/* Give mobile menu some top padding so first item isn't hidden */
+.mobile_list {
+  padding-top: 5rem; /* space for close button */
+}
+
+/* Optional: make backdrop slightly darker or add blur */
+.fixed.inset-0.bg-black\/60 {
+  backdrop-filter: blur(4px);
 }
 
 .navbar ul {
@@ -26,8 +188,8 @@
 
 .nav-right {
   display: flex;
+  gap: 30px;
   align-items: center;
-  gap: max(1vw, 12px);
 }
 
 .navbar select {
@@ -60,10 +222,6 @@
   background: #fff;
   border: none;
   cursor: pointer;
-}
-
-.navbar button img {
-  width: 13px;
 }
 
 .pointer {
@@ -163,9 +321,27 @@
     display: none;
     position: relative;
   }
+  /* Backdrop when mobile menu is open */
+.mobile_menus::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: #09005c;;
+  z-index: -1;
+  pointer-events: none; /* allow clicks to pass through to close handler */
+}
+
+/* When open, make backdrop clickable */
+.open .mobile_menus::before {
+  pointer-events: auto;
+}
+
+/* Prevent content shift when scrollbar disappears */
+body {
+  transition: overflow 0.3s ease;
+}
   .mobile_menus {
     display: flex;
-    margin-top: 30px;
     background-color: #09005c;
     position: absolute;
     top: 100%;

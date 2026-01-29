@@ -40,7 +40,6 @@ const Decentralized = () => {
       .then(response => response.json())
       .then(response => {
         setConversionRates(response);
-        console.log("Conversion rates: ", response);
         setLoading(false);
       })
       .catch(err => console.error("Error fetching conversion rates", err));
@@ -58,7 +57,6 @@ const Decentralized = () => {
     fetch("https://api.coingecko.com/api/v3/global/decentralized_finance_defi", options)
       .then((response) => response.json())
       .then((response) => {
-        console.log("Decentralized data: ", response);
         setDecentralizedData(response);
       })
       .catch((err) => console.error(err));
