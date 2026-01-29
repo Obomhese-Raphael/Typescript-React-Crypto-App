@@ -8,22 +8,30 @@ import { MinimalSpinner } from "../../Components/Spinner/Spinner";
 import { useTrendingCarousel } from "../../hooks/useTrendingCarousel";
 
 const Home = () => {
-  const {
-    trendingCoin,
-    loadingTrending,
-    errorTrending,
-    currency,
-  } = useContext(CoinContext);
+  const { trendingCoin, loadingTrending, errorTrending, currency } =
+    useContext(CoinContext);
 
   const [isPaused, setIsPaused] = useState(false);
 
   const topCoins = trendingCoin.slice(0, 10);
 
-  const { currentItem } = useTrendingCarousel({
+  const { currentItem } = useTrendingCarousel<{
+    item: {
+      id: string;
+      name: string;
+      symbol?: string;
+      large: string;
+      data: {
+        market_cap: number;
+        price_change_percentage_24h: Record<string, number>;
+        // add more fields if needed
+      };
+    };
+  }>({
     items: topCoins,
     interval: 5000,
     pause: isPaused,
-    resetKey: currency.name, // 🔥 sync with selected currency
+    resetKey: currency.name,
   });
 
   // ── Loading ──
@@ -90,9 +98,7 @@ const Home = () => {
             </div>
           </Link>
 
-          <p className="market_cap">
-            {coin.data.market_cap.toLocaleString()}
-          </p>
+          <p className="market_cap">{coin.data.market_cap.toLocaleString()}</p>
 
           <p
             className={`percentage price_change ${
